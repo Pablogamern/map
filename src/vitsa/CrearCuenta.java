@@ -37,17 +37,19 @@ public class CrearCuenta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         txt_Registrar_Nombre = new javax.swing.JTextField();
         txt_RegistrarApellido1 = new javax.swing.JTextField();
-        btn_registrar1 = new javax.swing.JButton();
         txt_RegistrarContraseña = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btn_registrar1 = new javax.swing.JButton();
         btn_registrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_Registrar_Nombre.setBackground(new java.awt.Color(255, 204, 0));
-        txt_Registrar_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txt_Registrar_Nombre.setBackground(new java.awt.Color(0, 20, 9));
+        txt_Registrar_Nombre.setForeground(new java.awt.Color(255, 255, 0));
+        txt_Registrar_Nombre.setBorder(null);
         txt_Registrar_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_Registrar_NombreActionPerformed(evt);
@@ -55,23 +57,29 @@ public class CrearCuenta extends javax.swing.JFrame {
         });
         jPanel1.add(txt_Registrar_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 200, 20));
 
-        txt_RegistrarApellido1.setBackground(new java.awt.Color(255, 204, 0));
-        txt_RegistrarApellido1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txt_RegistrarApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 200, 30));
+        txt_RegistrarApellido1.setBackground(new java.awt.Color(0, 20, 9));
+        txt_RegistrarApellido1.setForeground(new java.awt.Color(255, 255, 0));
+        txt_RegistrarApellido1.setBorder(null);
+        jPanel1.add(txt_RegistrarApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 136, 200, 20));
+
+        txt_RegistrarContraseña.setBackground(new java.awt.Color(0, 20, 9));
+        txt_RegistrarContraseña.setForeground(new java.awt.Color(255, 255, 0));
+        txt_RegistrarContraseña.setBorder(null);
+        jPanel1.add(txt_RegistrarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 200, 20));
+
+        jTextField1.setBackground(new java.awt.Color(0, 20, 9));
+        jTextField1.setBorder(null);
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 250, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-19 at 2.33.16 AM (2).jpeg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
 
         btn_registrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_registrar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_registrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 230, 40));
-
-        txt_RegistrarContraseña.setBackground(new java.awt.Color(255, 204, 0));
-        txt_RegistrarContraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txt_RegistrarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, 200, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-19 at 2.33.16 AM (2).jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
+        jPanel1.add(btn_registrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 80, 30));
 
         btn_registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,11 +92,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -151,6 +159,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     private javax.swing.JButton btn_registrar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txt_RegistrarApellido1;
     private javax.swing.JTextField txt_RegistrarContraseña;
     private javax.swing.JTextField txt_Registrar_Nombre;

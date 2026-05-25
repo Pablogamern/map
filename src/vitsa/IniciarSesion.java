@@ -46,15 +46,18 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_Apellido.setBackground(new java.awt.Color(255, 204, 0));
-        jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 200, 30));
+        txt_Apellido.setBackground(new java.awt.Color(0, 20, 9));
+        txt_Apellido.setForeground(new java.awt.Color(255, 255, 0));
+        txt_Apellido.setBorder(null);
+        jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 174, 190, 20));
 
-        txt_Nombre.setBackground(new java.awt.Color(255, 204, 0));
-        txt_Nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 102, 200, 30));
+        txt_Nombre.setBackground(new java.awt.Color(0, 20, 9));
+        txt_Nombre.setForeground(new java.awt.Color(255, 255, 0));
+        txt_Nombre.setBorder(null);
+        jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 190, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-13 at 9.32.24 AM.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 620, -1));
 
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,12 +71,14 @@ public class IniciarSesion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
