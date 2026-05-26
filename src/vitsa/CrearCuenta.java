@@ -17,7 +17,8 @@ public class CrearCuenta extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearCuenta.class.getName());
     Usuario usuario;
     GestorCuentas gestor  = new GestorCuentas();
-    
+    IniciarSesion iniciarSesion  = new IniciarSesion();
+
     /** 
      * Creates new form registro
      */
@@ -103,23 +104,22 @@ public class CrearCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar1ActionPerformed
-        IniciarSesion iniciarSesion  = new IniciarSesion();
-    CrearCuenta crearCuenta  = new CrearCuenta();
-        crearCuenta.setVisible(false);
+
+        setVisible(false);
             iniciarSesion.setVisible(true);
     }//GEN-LAST:event_btn_registrar1ActionPerformed
 
     private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
-       IniciarSesion iniciarSesion  = new IniciarSesion();
-    CrearCuenta crearCuenta  = new CrearCuenta();
+
         if(txt_Registrar_Nombre.getText().isEmpty()  || txt_RegistrarContraseña.getText().isEmpty()   ||  txt_RegistrarApellido1.getText().isEmpty() ){
             JOptionPane.showMessageDialog(null, "datos faltantes");
         }
         else{
             usuario  = new Usuario(txt_Registrar_Nombre.getText(), txt_RegistrarContraseña.getText(), txt_RegistrarApellido1.getText());
             gestor.agregarUsuario(usuario);
+            gestor.guardarUsuarios();
             gestor.mostrarUsuarios();
-            crearCuenta.setVisible(false);
+            setVisible(false);
             iniciarSesion.setVisible(true);
             
         }

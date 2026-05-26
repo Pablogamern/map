@@ -54,7 +54,7 @@ public class GestorCuentas{
     }
     
 
-    private void guardarUsuarios() {
+    public void guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoDatos))) {
             oos.writeObject(usuarios);
         } catch (IOException e) {
@@ -64,7 +64,7 @@ public class GestorCuentas{
     
     // Cargar usuarios desde archivo local
     @SuppressWarnings("unchecked")
-    private void cargarUsuarios() {
+    public void cargarUsuarios() {
         File archivo = new File(archivoDatos);
         if (archivo.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {

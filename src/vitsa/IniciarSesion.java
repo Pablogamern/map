@@ -16,14 +16,14 @@ public class IniciarSesion extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(IniciarSesion.class.getName());
     Usuario usuario;
-    GestorCuentas gestorCuentas;
+    GestorCuentas gestorCuentas   = new GestorCuentas();;
     
     /**
      * Creates new form sesion
      */
     public IniciarSesion() {
         initComponents();
-        gestorCuentas  = new GestorCuentas();
+        
         
     }
 
@@ -85,7 +85,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-            
+        gestorCuentas.cargarUsuarios();
         if(txt_Nombre.getText().isEmpty()  || txt_Apellido.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "datos faltantes");
         }
@@ -94,6 +94,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             usuario = gestorCuentas.buscarUsuario(txt_Nombre.getText());
                 System.out.println(""+usuario.getNombres());
             Perfil perfil = new Perfil();
+            setVisible(false);
             perfil.nombre(usuario.getNombres());
             perfil.setVisible(true);
             
