@@ -4,7 +4,7 @@ package API;
 import org.jxmapviewer.*;
 import org.jxmapviewer.viewer.*;
 import org.jxmapviewer.input.*;
-
+import usuario.Animales;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -15,10 +15,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
+import usuario.Usuario;
+import vitsa.IniciarSesion;
+import usuario.GestorCuentas;
 public class MapaPanel extends JPanel {
         private boolean mostrarDensidad = false;
-
+        private String ide;
+    private Usuario usu;    
+    private GestorCuentas se = new GestorCuentas();
+    private Animales animal;  
     private Map<String, Integer> densidad;
     private JXMapViewer map;
     private Set<AnimalWaypoint> waypoints;
@@ -63,7 +68,7 @@ public class MapaPanel extends JPanel {
     });
         add(map, BorderLayout.CENTER);
     }
-    private void detectarClick(MouseEvent e) {
+    public void detectarClick(MouseEvent e) {
 
     for (AnimalWaypoint wp : waypoints) {
 
@@ -78,10 +83,23 @@ public class MapaPanel extends JPanel {
         Rectangle area = new Rectangle(x - 5, y - 5, 10, 10);
 
         if (area.contains(e.getPoint())) {
+            usu = se.buscarUsuario1(ide);
+            animal = new Animales(wp.getNombre());
+            se.guardarAnimal(usu, animal);
+            
+            System.out.println(""+usu.getNombres());
+            usu.mostrar();
             mostrarInfo(wp);
+            
             break;
         }
     }
+}
+public Animales es(){
+        return animal;
+    }
+public void yes(String id){
+ ide =  id;
 }
     private void mostrarInfo(AnimalWaypoint wp) {
 
@@ -95,7 +113,7 @@ public class MapaPanel extends JPanel {
                 + "</html>";
 
         JLabel label = new JLabel(texto);
-
+        
         JOptionPane.showMessageDialog(
                 null,
                 label,

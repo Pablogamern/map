@@ -115,10 +115,10 @@ public class CrearCuenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "datos faltantes");
         }
         else{
-            usuario  = new Usuario(txt_Registrar_Nombre.getText(), txt_RegistrarContraseña.getText(), txt_RegistrarApellido1.getText());
-            gestor.agregarUsuario(usuario);
-            gestor.guardarUsuarios();
-            gestor.mostrarUsuarios();
+            
+            gestor.registrarEstudiante(txt_Registrar_Nombre.getText(),  txt_RegistrarContraseña.getText(), txt_RegistrarApellido1.getText());
+            
+            
             setVisible(false);
             iniciarSesion.setVisible(true);
             

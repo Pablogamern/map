@@ -7,7 +7,7 @@ package vitsa;
 import javax.swing.JOptionPane;
 import usuario.GestorCuentas;
 import usuario.Usuario;
-
+import usuario.Animales;
 /**
  *
  * @author Personal
@@ -26,7 +26,9 @@ public class IniciarSesion extends javax.swing.JFrame {
         
         
     }
-
+    public Usuario getUsuario(){
+        return usuario;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,19 +87,22 @@ public class IniciarSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        gestorCuentas.cargarUsuarios();
+        
         if(txt_Nombre.getText().isEmpty()  || txt_Apellido.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "datos faltantes");
         }
         else{
-            if(gestorCuentas.iniciarSesion(txt_Nombre.getText(), txt_Apellido.getText())){
-            usuario = gestorCuentas.buscarUsuario(txt_Nombre.getText());
-                System.out.println(""+usuario.getNombres());
+            if(gestorCuentas.buscarUsuario( txt_Apellido.getText())){
+            usuario = gestorCuentas.buscarUsuario1( txt_Apellido.getText());
+            //Animales animal  = new Animales("perro");
+            //gestorCuentas.guardarAnimal(usuario, animal);
+            System.out.println(""+usuario.getNombres());
             Perfil perfil = new Perfil();
-            setVisible(false);
+           
             perfil.nombre(usuario.getNombres());
+            perfil.se( txt_Apellido.getText());
             perfil.setVisible(true);
-            
+            setVisible(false);
             
             }
             else{

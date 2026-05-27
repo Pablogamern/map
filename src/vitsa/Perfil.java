@@ -10,7 +10,9 @@ import API.MapaPanel;
 import API.TablaPanel;
 import javax.swing.JFrame;
 import org.jxmapviewer.viewer.GeoPosition;
+import usuario.GestorCuentas;
 import usuario.Usuario;
+import usuario.Animales;
 /**
  *
  * @author Personal
@@ -18,17 +20,22 @@ import usuario.Usuario;
 public class Perfil extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Perfil.class.getName());
-
-     
+    Usuario usuario;
+    GestorCuentas gestor  = new GestorCuentas();
+    String ide; 
     public Perfil() {       
         initComponents();
-         
+        
     }
     public void nombre(String nombre){
         lbl_Nombre_perfil.setText(nombre);
     }
-    
-    
+    public void se(String id){
+        ide  = id;
+    }
+    public Usuario y(){
+     return usuario;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,14 +165,21 @@ public class Perfil extends javax.swing.JFrame {
     tablaFrame.setLocation(650, 200);
     tablaFrame1.setVisible(true);
     tablaFrame.setVisible(true);*/
-         mapa mapa  = new mapa();
+        usuario = gestor.buscarUsuario1(ide);
+        //Animales a = new Animales("gato");
+        //gestor.guardarAnimal(usuario, a);
+        mapa mapa  = new mapa();
+        mapa.fer(ide);
+        usuario.mostrar();
          jDesktopPane1.add(mapa);
+         //mapa.fer(usuario);
          mapa.setVisible(true);       
          Tabla tabla = new Tabla();
          jDesktopPane1.add(tabla);
          tabla.setVisible(true);
+         
     }//GEN-LAST:event_btn_mapaActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */

@@ -10,16 +10,19 @@ import API.MapaPanel;
 import API.TablaPanel;
 import javax.swing.JCheckBox;
 import org.jxmapviewer.viewer.GeoPosition;
-
+import usuario.Animales;
 /**
  *
  * @author Usuario
  */
+import usuario.Usuario;
 public class mapa extends javax.swing.JInternalFrame {
-    JDesktopIcon s = new JDesktopIcon(this);
+    Usuario usu;
+    
     /**
      * Creates new form mapa
      */
+    
     MapaPanel mapa = new MapaPanel();
     public mapa() {
         initComponents();
@@ -33,7 +36,16 @@ public class mapa extends javax.swing.JInternalFrame {
                 mapa.getMap().setZoom(6);
                 System.out.println(json);
             add(mapa);
+        
+            
     }
+    public void fer(String id){
+        mapa.yes(id);
+    }
+    public Animales ses(){
+     return mapa.es();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
