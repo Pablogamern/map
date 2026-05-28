@@ -8,6 +8,7 @@ import API.Controlador;
 import API.GBIFService;
 import API.MapaPanel;
 import API.TablaPanel;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import org.jxmapviewer.viewer.GeoPosition;
 import usuario.GestorCuentas;
@@ -21,21 +22,22 @@ public class Perfil extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Perfil.class.getName());
     Usuario usuario;
+    ArrayList<Usuario> usu;
     GestorCuentas gestor  = new GestorCuentas();
     String ide; 
-    public Perfil() {       
+    public Perfil() {
+        gestor  = new GestorCuentas();
+        
         initComponents();
         
     }
     public void nombre(String nombre){
         lbl_Nombre_perfil.setText(nombre);
     }
-    public void se(String id){
+    public void obtenerID(String id){
         ide  = id;
     }
-    public Usuario y(){
-     return usuario;
-    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,13 +50,15 @@ public class Perfil extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lbl_Nombre_perfil = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        area = new javax.swing.JTextArea();
+        jTextField3 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_mapa = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,44 +67,48 @@ public class Perfil extends javax.swing.JFrame {
         lbl_Nombre_perfil.setForeground(new java.awt.Color(120, 156, 22));
         jPanel1.add(lbl_Nombre_perfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 120, 20));
 
-        jTextField2.setBackground(new java.awt.Color(15, 32, 24));
-        jTextField2.setForeground(new java.awt.Color(15, 32, 24));
-        jTextField2.setBorder(null);
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 290, 70));
+        area.setBackground(new java.awt.Color(15, 32, 24));
+        area.setColumns(20);
+        area.setForeground(new java.awt.Color(255, 255, 0));
+        area.setRows(5);
+        area.setBorder(null);
+        jPanel1.add(area, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 300, -1));
+
+        jTextField3.setBackground(new java.awt.Color(9, 22, 15));
+        jTextField3.setForeground(new java.awt.Color(15, 32, 24));
+        jTextField3.setBorder(null);
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, 40));
 
         jTextField1.setBackground(new java.awt.Color(9, 22, 15));
         jTextField1.setForeground(new java.awt.Color(15, 32, 24));
         jTextField1.setBorder(null);
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 110, 120));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 110, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-13 at 9.28.11 AM.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 490));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 480));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/0af8c4ddc058058065320ba5dad91003.gif"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-27 at 6.33.48 PM.jpeg"))); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/39ff6a3e5733a9e870fbe4a3f82b8736.gif"))); // NOI18N
-
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(464, 464, 464)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1107, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 720, 480));
+        jPanel1.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, -10, 760, 490));
 
         btn_mapa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,11 +117,22 @@ public class Perfil extends javax.swing.JFrame {
         });
         jPanel1.add(btn_mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 130, 40));
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 120, 30));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,50 +146,12 @@ public class Perfil extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_mapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mapaActionPerformed
-        /*MapaPanel mapa new MapaPanel();
-        TablaPanel tablaPanel = new TablaPanel();
-        
-        
 
-
-        tablaPanel.getTabla().getSelectionModel().addListSelectionListener(e -> {
-
-            int fila = tablaPanel.getTabla().getSelectedRow();
-
-            if (fila != -1) {
-                double lat = (double) tablaPanel.getTabla().getValueAt(fila, 5);
-                double lon = (double) tablaPanel.getTabla().getValueAt(fila, 6);
-
-              
-            }
-        });
-        setVisible(true);
-        double lat = 2.43823;
-        double lon =  -76.61316;          
-        String json = GBIFService.buscarEspecies(lat, lon);
-        Controlador.procesarDatos(json, mapa, tablaPanel);
-        mapa.getMap().setAddressLocation(new GeoPosition(lat, lon));
-                mapa.getMap().setZoom(6);
-                System.out.println(json);
-                add(mapa);
-                
-                
-        JFrame tablaFrame = new JFrame("Tabla de Animales");
-        JFrame tablaFrame1 = new JFrame("Mapa de Animales");
-        tablaFrame1.setSize(700, 500);
-        tablaFrame1.setLocation(100, 200);
-    tablaFrame.setSize(700, 500);
-    tablaFrame.add(tablaPanel);
-    tablaFrame1.add(mapa);
-    tablaFrame.setLocation(650, 200);
-    tablaFrame1.setVisible(true);
-    tablaFrame.setVisible(true);*/
         usuario = gestor.buscarUsuario1(ide);
-        //Animales a = new Animales("gato");
-        //gestor.guardarAnimal(usuario, a);
+        
         mapa mapa  = new mapa();
-        mapa.fer(ide);
-        usuario.mostrar();
+        mapa.recibirID(ide);
+        
          jDesktopPane1.add(mapa);
          //mapa.fer(usuario);
          mapa.setVisible(true);       
@@ -179,6 +160,12 @@ public class Perfil extends javax.swing.JFrame {
          tabla.setVisible(true);
          
     }//GEN-LAST:event_btn_mapaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        gestor  = new GestorCuentas();
+        usuario = gestor.buscarUsuario1(ide);
+        usuario.mostrar(area);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -206,14 +193,16 @@ public class Perfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea area;
     private javax.swing.JButton btn_mapa;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbl_Nombre_perfil;
     // End of variables declaration//GEN-END:variables
 }

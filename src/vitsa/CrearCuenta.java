@@ -17,7 +17,8 @@ public class CrearCuenta extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CrearCuenta.class.getName());
     Usuario usuario;
     GestorCuentas gestor  = new GestorCuentas();
-    IniciarSesion iniciarSesion  = new IniciarSesion();
+    IniciarSesion iniciarSesion;
+    Perfil perfil = new Perfil();
 
     /** 
      * Creates new form registro
@@ -104,7 +105,7 @@ public class CrearCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar1ActionPerformed
-
+        iniciarSesion  = new IniciarSesion();
         setVisible(false);
             iniciarSesion.setVisible(true);
     }//GEN-LAST:event_btn_registrar1ActionPerformed
@@ -120,6 +121,7 @@ public class CrearCuenta extends javax.swing.JFrame {
             
             
             setVisible(false);
+            iniciarSesion  = new IniciarSesion();
             iniciarSesion.setVisible(true);
             
         }

@@ -4,6 +4,7 @@ package usuario;
 import java.awt.List;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.JTextArea;
 
 
 public class Usuario implements Serializable{
@@ -56,9 +57,11 @@ public class Usuario implements Serializable{
     public void agregaranimal(Animales animal){
         animales.add(animal);
     }
-    public void mostrar(){
+    public void mostrar(JTextArea area){
+        area.setText("Avistamientos Recientes");
         for (Animales animale : animales) {
-            System.out.println(""+animale.getNombreComun());
+           
+            area.append("\nNombre: "+animale.getNombreComun());
         }
     }
     @Override

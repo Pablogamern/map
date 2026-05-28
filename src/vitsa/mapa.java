@@ -39,12 +39,10 @@ public class mapa extends javax.swing.JInternalFrame {
         
             
     }
-    public void fer(String id){
-        mapa.yes(id);
+    public void recibirID(String id){
+        mapa.usarID(id);
     }
-    public Animales ses(){
-     return mapa.es();
-    }
+    
     
 
     /**

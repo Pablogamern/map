@@ -4,6 +4,7 @@
  */
 package vitsa;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import usuario.GestorCuentas;
 import usuario.Usuario;
@@ -16,15 +17,15 @@ public class IniciarSesion extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(IniciarSesion.class.getName());
     Usuario usuario;
-    GestorCuentas gestorCuentas   = new GestorCuentas();;
-    
+    GestorCuentas gestorCuentas;
+     ArrayList<Usuario> usu;
     /**
      * Creates new form sesion
      */
     public IniciarSesion() {
-        initComponents();
-        
-        
+        gestorCuentas   = new GestorCuentas();
+        usu = gestorCuentas.cargarUsuarios();
+        initComponents();    
     }
     public Usuario getUsuario(){
         return usuario;
@@ -37,6 +38,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         txt_Apellido = new javax.swing.JTextField();
@@ -46,61 +48,87 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new java.awt.GridBagLayout());
 
         txt_Apellido.setBackground(new java.awt.Color(0, 20, 9));
         txt_Apellido.setForeground(new java.awt.Color(255, 255, 0));
         txt_Apellido.setBorder(null);
-        jPanel1.add(txt_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 174, 190, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(44, 360, 0, 0);
+        jPanel1.add(txt_Apellido, gridBagConstraints);
 
         txt_Nombre.setBackground(new java.awt.Color(0, 20, 9));
         txt_Nombre.setForeground(new java.awt.Color(255, 255, 0));
         txt_Nombre.setBorder(null);
-        jPanel1.add(txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 190, 20));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 126;
+        gridBagConstraints.ipady = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(110, 360, 0, 0);
+        jPanel1.add(txt_Nombre, gridBagConstraints);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/WhatsApp Image 2026-05-13 at 9.32.24 AM.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 620, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 4;
+        gridBagConstraints.ipadx = 20;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+        jPanel1.add(jLabel1, gridBagConstraints);
 
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 230, 40));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 158;
+        gridBagConstraints.ipady = 33;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(26, 330, 0, 0);
+        jPanel1.add(btnLogin, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+        gestorCuentas.cargarUsuarios();
         if(txt_Nombre.getText().isEmpty()  || txt_Apellido.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "datos faltantes");
         }
         else{
             if(gestorCuentas.buscarUsuario( txt_Apellido.getText())){
             usuario = gestorCuentas.buscarUsuario1( txt_Apellido.getText());
-            //Animales animal  = new Animales("perro");
-            //gestorCuentas.guardarAnimal(usuario, animal);
             System.out.println(""+usuario.getNombres());
             Perfil perfil = new Perfil();
            
             perfil.nombre(usuario.getNombres());
-            perfil.se( txt_Apellido.getText());
+            perfil.obtenerID( txt_Apellido.getText());
             perfil.setVisible(true);
             setVisible(false);
             
@@ -108,6 +136,8 @@ public class IniciarSesion extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(null, "usuario no registradon");
             }
+
+            
         }
         
         btnLogin.setBorderPainted(false);

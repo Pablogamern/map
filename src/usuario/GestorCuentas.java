@@ -20,15 +20,15 @@ public class GestorCuentas {
     
     public GestorCuentas() {
         this.archivo = System.getProperty("user.home") + File.separator + "usuario.dat";
-        usuario = cargarEstudiantes();
+        usuario = cargarUsuarios();
     }
     public GestorCuentas(String rutaArchivo) {
         this.archivo = rutaArchivo;
-        usuario = cargarEstudiantes();
+        usuario = cargarUsuarios();
     }
    public void registrarEstudiante(String nombres,String noDocumento,String apellido) {
-        usuario.add(new Usuario(nombres, nombres, apellido));
-        guardarEstudiates();
+        usuario.add(new Usuario(nombres, noDocumento, apellido));
+        guardarUsuarios();
     }
     public ArrayList<Usuario> listarUsuarios() {
         return usuario;
@@ -59,12 +59,12 @@ public class GestorCuentas {
     }
     public void guardarAnimal(Usuario usu, Animales anmial){
        usu.agregaranimal(anmial);
-       guardarEstudiates();
+       guardarUsuarios();
     }
     
     
         // Guardar en archivo
-    private void guardarEstudiates() {
+    private void guardarUsuarios() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivo))) {
             oos.writeObject(usuario);
         } catch (IOException e) {
@@ -74,7 +74,7 @@ public class GestorCuentas {
 
     // Cargar desde archivo
     @SuppressWarnings("unchecked")
-    private ArrayList<Usuario> cargarEstudiantes() {
+    public ArrayList<Usuario> cargarUsuarios() {
         File f = new File(archivo);
         if (!f.exists()) {
             return new ArrayList<>();

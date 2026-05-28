@@ -30,94 +30,41 @@ public void paint(Graphics2D g, JXMapViewer map, int w, int h) {
       if (mostrarDensidad) {
           
             for (String key : densidad.keySet()) {
-
                 int cantidad = densidad.get(key);
-
                 String[] partes = key.split("_");
-
-                double lat =
-                        Integer.parseInt(partes[0]) / 10.0;
-
-                double lon =
-                        Integer.parseInt(partes[1]) / 10.0;
-
-                Point2D pt =
-                        map.getTileFactory()
-                                .geoToPixel(
-                                        new GeoPosition(lat, lon),
-                                        map.getZoom()
-                                );
-
-                int x =
-                        (int) (pt.getX() - rect.getX());
-
-                int y =
-                        (int) (pt.getY() - rect.getY());
-
+                double lat = Integer.parseInt(partes[0]) / 10.0;
+                double lon = Integer.parseInt(partes[1]) / 10.0;
+                Point2D pt =map.getTileFactory().geoToPixel(new GeoPosition(lat, lon),map.getZoom());
+                int x =(int) (pt.getX() - rect.getX());
+                int y =(int) (pt.getY() - rect.getY());
                 if (cantidad > 20) {
 
-                    g.setColor(
-                            new Color(255, 0, 0, 120)
-                    );
+                    g.setColor(new Color(255, 0, 0, 120));
 
                 } else if (cantidad > 10) {
 
-                    g.setColor(
-                            new Color(255, 255, 0, 120)
-                    );
+                    g.setColor(new Color(255, 255, 0, 120));
 
                 } else {
 
-                    g.setColor(
-                            new Color(0, 255, 0, 120)
-                    );
+                    g.setColor(new Color(0, 255, 0, 120));
                 }
 
                 int radio = cantidad * 8;
-
-                g.fillOval(
-                        x - radio / 2,
-                        y - radio / 2,
-                        radio,
-                        radio
-                );
+                g.fillOval(x - radio / 2,y - radio / 2,radio, radio);
             }
         }
     Set<AnimalWaypoint> copia = new HashSet<>(waypoints);
-
     for (AnimalWaypoint wp : copia) {
-
-        Point2D pt = map.getTileFactory()
-                .geoToPixel(wp.getPosition(), map.getZoom());
-
-        
-
+        Point2D pt = map.getTileFactory().geoToPixel(wp.getPosition(), map.getZoom());
         int x = (int) (pt.getX() - rect.getX());
         int y = (int) (pt.getY() - rect.getY());
-
-        
         g.setColor(wp.getColor());
-
-        
         int size = 18;
-
-        
-        g.fillOval(
-                x - size / 2,
-                y - size / 2,
-                size,
-                size
-        );        
+        g.fillOval(x - size / 2,y - size / 2,size,size);        
         g.setColor(Color.BLACK);
-
-        g.drawOval(
-                x - size / 2,
-                y - size / 2,
-                size,
-                size
-        );
+        g.drawOval(x - size / 2,y - size / 2,size,size);
     }
-
     g.dispose();
 }
     

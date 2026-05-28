@@ -9,22 +9,15 @@ public class AnimalWaypoint extends DefaultWaypoint {
     private String imageUrl;
     private String clase;
     private Color color;
-    
-    
-    public AnimalWaypoint(double lat, double lon,
-                      String nombre,String imageurl, String clase) {
-
+    public AnimalWaypoint(double lat, double lon,String nombre,String imageurl, String clase) {
     super(lat, lon);
-
     this.nombre = nombre;
     this.clase = clase;
     this.imageUrl = imageurl;
     color = obtenerColor(clase);
 }
     private Color obtenerColor(String clase) {
-
     switch (clase.toLowerCase()) {
-
         case "mammalia":
             return Color.RED;
 

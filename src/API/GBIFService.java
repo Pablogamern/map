@@ -12,18 +12,7 @@ public class GBIFService {
     public static String buscarEspecies(double lat, double lon) {
             try {
 
-            String urlString =
-                    "https://api.inaturalist.org/v1/observations"
-                    + "?lat=" + lat
-                    + "&lng=" + lon
-                    + "&radius=100"
-                    + "&per_page=400"
-                    + "&order=desc"
-                    + "&order_by=created_at"
-                    + "&quality_grade=research"
-                    + "&iconic_taxa="
-                    + "Mammalia,Aves,Reptilia,Amphibia,"
-                    + "Insecta,Arachnida,Actinopterygii";
+            String urlString = "https://api.inaturalist.org/v1/observations"+ "?lat=" + lat + "&lng=" + lon+ "&radius=100"+ "&per_page=800"+ "&order=desc"+ "&order_by=created_at"+ "&quality_grade=research" + "&iconic_taxa="+ "Mammalia,Aves,Reptilia,Amphibia,"+ "Insecta,Arachnida,Actinopterygii";
 
             URL url = new URL(urlString);
 
